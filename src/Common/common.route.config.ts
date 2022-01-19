@@ -7,14 +7,20 @@ import express, { Application } from "express";
 export abstract class RouteConfig {
   app: Application
   name: string
-  Constructor(app: Application, name: string, hello : string) {
-    this.app = app
+  constructor(app: Application, name: string) {
     this.name = name
-    console.log(hello)
+    this.app =app 
     this.configureRoutes()
   }
   getName() {
     return this.name
   }
+  setApp(app : Application){
+    this.app = app
+  }
+  setName(name: string){
+    this.name = name 
+  }
   abstract configureRoutes(): Application
 }
+

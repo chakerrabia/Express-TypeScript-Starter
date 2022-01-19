@@ -7,12 +7,11 @@ import UserController from '../User/user.controller'
 export class UserRoutes extends RouteConfig {
   //TODO This might cause issues later, recheck it 
   constructor(app: Application) {
-    super()
-    super.app = app
-    super.name = "UserRoutes"
+    super(app, "UserRoutes")
+
   }
   configureRoutes(): Application {
-    this.app.route('/user').get([UserController.getUsers])
+    this.app.route('/users').get([UserController.getUsers])
     return this.app;
   }
 }
